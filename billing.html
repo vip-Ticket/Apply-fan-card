@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing Information</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    a{
+      color: white;
+      font-size: large;
+    }
+  </style>
+</head>
+<body>
+  <section class="billing-form">
+    <h1 style="background-color: cadetblue;">VIP Tickets Meet and Greet membership Fan Card Apply</h1>
+    <h2>Billing Information</h2>
+    <form onsubmit="saveBilling(event)">
+      <input type="text" placeholder="Full Name" required id="name">
+      <input type="text" placeholder="Address" required id="address">
+      <input type="email" placeholder="Email" required id="email">
+      <input type="text" placeholder="Phone Number" required id="phone">
+      <button type="submit"><a href="payment.html" style="text-decoration: none;">Continue to Payment</a></button>
+    </form>
+  </section>
+  <script src="scripts.js"></script>
+</body>
+</html>
