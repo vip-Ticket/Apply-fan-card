@@ -1,21 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Plan Benefits</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #121212, #1e1e1e);
+      margin: 0;
+      padding: 0;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .benefits {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      padding: 40px;
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .benefits h1 {
+      margin: 10px 0;
+      font-size: 2rem;
+      color: #ff80ab;
+    }
+
+    #plan-title {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 0 0 5px #f06292;
+    }
+
+    #benefit-list {
+      text-align: left;
+      margin-top: 25px;
+      padding-left: 20px;
+    }
+
+    #benefit-list li {
+      margin: 10px 0;
+      padding: 12px 18px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #f06292;
+      border-radius: 8px;
+      list-style: none;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    #benefit-list li:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.02);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 35px;
+      background-color: #f06292;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 10px #f06292;
+    }
+
+    button:hover {
+      background-color: #ff80ab;
+      box-shadow: 0 0 20px #ff80ab;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .benefits {
+        padding: 20px;
+      }
+
+      .benefits h1 {
+        font-size: 1.5rem;
+      }
+
+      #benefit-list li {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+
+      button {
+        padding: 12px 25px;
+      }
+    }
+  </style>
 </head>
 <body onload="loadBenefits()">
   <section class="benefits">
-    <h1 style="background-color: cadetblue;">VIP Tickets Meet and Greet membership Fan Card Apply</h1>
+    <h1>💎 Membership Benefits</h1>
     <h1 id="plan-title">Plan Benefits</h1>
     <ul id="benefit-list">
-      <!-- Dynamic Benefits -->
-       
+      <!-- Loaded via JS -->
     </ul>
     <button onclick="goToBilling()">Proceed to Payment</button>
   </section>
+
   <script src="scripts.js"></script>
 </body>
 </html>
