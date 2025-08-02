@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Meet & Greet - Choose Plan</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS (Animate on Scroll) CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+  <!-- AOS Animation -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
 
-  <!-- Your CSS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <section class="subscription-section" data-aos="fade-up">
-    <h1 style="background-color: cadetblue;">VIP Tickets Meet and Greet membership Fan Card Apply</h1>
-    <h1><hr>Select Your Subscription<hr></h1>
+
+  <section class="subscription-section" data-aos="zoom-in">
+    <h1 class="main-heading">VIP Tickets Meet and Greet Membership Fan Card Apply</h1>
+    <h2 class="sub-heading"><hr>Select Your Subscription<hr></h2>
+
     <div class="card-container">
       <div class="card" onclick="selectPlan('regular')" data-aos="fade-right">
         <h2>Regular</h2>
@@ -26,12 +28,14 @@
             with the latest updates, tours event, book signings, and movie premieres.
         </p>
       </div>
+
       <div class="card" onclick="selectPlan('premium')" data-aos="fade-up">
         <h2>Premium</h2>
         <p><b>Price: $2,050</b></p>
         <p>This offers exclusive perks and a more enjoyable experience for members. With premium subscription, you can access unique, experimental, and early-release features that aren't available to regular users, 
             including FaceTime, access to meet and greet, free access to tours, and more.</p>
       </div>
+
       <div class="card" onclick="selectPlan('vip')" data-aos="fade-left">
         <h2>VIP</h2>
         <p><b>Price: $3,050</b></p>
@@ -47,9 +51,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>AOS.init({ duration: 1000, once: true });</script>
 
-  <!-- Your JS -->
-  <script src="scripts.js"></script>
-
+  <!-- Custom JS -->
+  <script>
+    function selectPlan(plan) {
+      alert("You selected the " + plan.toUpperCase() + " plan!");
+    }
+  </script>
+<script src="scripts.js"></script>
   <!-- Samtups Live Chat -->
   <script>
     (function(s,u,p){
@@ -58,9 +66,9 @@
       t.async = true;
       t.onload = function() {
         window.SamtupsLiveChat.init({
-          key: "YOUR_SAMTUPS_KEY", // Replace this with your real key
+          key: "YOUR_SAMTUPS_KEY", // Replace with your real key
           position: "right",
-          themeColor: "#0096c7"
+          themeColor: "#ffcc00"
         });
       };
       document.head.appendChild(t);
