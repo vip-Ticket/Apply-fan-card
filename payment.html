@@ -2,85 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Select a Payment Method</title>
+  <title>Payment Methods</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f6ff;
       margin: 0;
-      padding: 2rem 1rem;
+      padding: 0;
+      background-color: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    header {
+      background: #1a1a1a;
+      padding: 20px;
       text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 2rem;
-      color: #333;
       font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      color: #fff;
     }
 
-    .grid {
+    h2 {
+      text-align: center;
+      margin: 30px 20px;
+      font-size: 1.4rem;
+    }
+
+    .container {
       display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(4, 1fr); /* 4 per row on all screens */
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      padding: 0 20px 40px;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     .method {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      padding: 1rem 0.5rem;
+      background: #1b1b1b;
+      padding: 25px 15px;
+      border-radius: 12px;
       text-align: center;
-      font-size: 0.85rem;
+      color: white;
       transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .method i {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #007bff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: floatUp 0.5s ease forwards;
     }
 
     .method:hover {
-      background: #e4f0ff;
-      transform: scale(1.05);
+      background: #2a2a2a;
+      transform: translateY(-8px) scale(1.03);
     }
 
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: repeat(4, 1fr);
+    .method i {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .method span {
+      font-size: 0.9rem;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
 
-    @media (max-width: 480px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* ICON COLORS */
+    .fa-university { color: #2e86de; }
+    .fa-exchange-alt { color: #3498db; }
+    .fa-cc-visa { color: #1a1f71; }
+    .fa-paypal { color: #003087; }
+    .fa-vimeo-v { color: #1ab7ea; }
+    .fa-money-check-alt { color: #0070ba; }
+    .fa-apple-pay { color: #ffffff; }
+    .fa-google-pay { color: #5f6368; }
+    .fa-wallet { color: #4caf50; }
+    .fa-store { color: #ff6f00; }
+    .fa-paper-plane { color: #00b0ff; }
+    .fa-euro-sign { color: #003399; }
+    .fa-gift { color: #d63384; }
+    .fa-bitcoin { color: #f7931a; }
+    .fa-globe-americas { color: #2b7bb9; }
+
+    @media (max-width: 500px) {
+      header {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1 style="background-color: cadetblue;">VIP Tickets Meet and Greet membership Fan Card Apply</h1>
+  <header>Select a Payment Method</header>
+  <h2>VIP Tickets · Meet and Greet · Membership · Fan Card Application</h2>
 
-  <h1>Select a Payment Method</h1>
-
-  <div class="grid" id="paymentGrid">
-    <!-- Payment methods will be injected by JavaScript -->
-  </div>
+  <div class="container" id="methods"></div>
 
   <script>
-    const managementEmail = "managementbookinginfo884@gmail.com"; // Replace with your management email
+    const email = "managementbookinginfo884@gmail.com";
 
-    const paymentMethods = {
+    const methods = {
       "Bank Wire Transfer": "fas fa-university",
       "E-Transfer": "fas fa-exchange-alt",
       "Cash App": "fab fa-cc-visa",
@@ -102,19 +135,21 @@
       "MoneyGram": "fas fa-paper-plane"
     };
 
-    const grid = document.getElementById("paymentGrid");
+    const container = document.getElementById("methods");
 
-    for (const [method, icon] of Object.entries(paymentMethods)) {
-      const div = document.createElement("div");
-      div.className = "method";
-      div.innerHTML = `<i class="${icon}"></i>${method}`;
-      div.onclick = () => {
-        const subject = encodeURIComponent("Payment Method: " + method);
-        const body = encodeURIComponent(`Hello,\n\nI would like to proceed with payment using: ${method}\n\nPlease provide me with further instructions.\n\nThank you.`);
-        window.location.href = `mailto:${managementEmail}?subject=${subject}&body=${body}`;
-      };
-      grid.appendChild(div);
-    }
+    Object.entries(methods).forEach(([name, icon], index) => {
+      const a = document.createElement("a");
+      const subject = encodeURIComponent(`Payment Method: ${name}`);
+      const body = encodeURIComponent(`Hello,\n\nI want to proceed with payment using ${name}.\nPlease guide me through the process.\n\nThank you.`);
+      a.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      a.innerHTML = `
+        <div class="method" style="animation-delay: ${index * 0.1}s;">
+          <i class="${icon}"></i>
+          <span>${name}</span>
+        </div>
+      `;
+      container.appendChild(a);
+    });
   </script>
 
 </body>
