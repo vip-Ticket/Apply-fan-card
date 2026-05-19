@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Website Blocked</title>
+
+  <style>
+
+    *{
+
+      margin:0;
+
+      padding:0;
+
+      box-sizing:border-box;
+
+      font-family: Arial, sans-serif;
+
+    }
+
+    body{
+
+      background:#0f172a;
+
+      height:100vh;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      overflow:hidden;
+
+      color:#fff;
+
+    }
+
+    .overlay{
+
+      position:absolute;
+
+      width:100%;
+
+      height:100%;
+
+      background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+
+      z-index:-1;
+
+    }
+
+    .container{
+
+      width:90%;
+
+      max-width:500px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter:blur(10px);
+
+      border-radius:20px;
+
+      padding:40px 30px;
+
+      text-align:center;
+
+      box-shadow:0 0 40px rgba(0,0,0,0.5);
+
+      animation:fadeIn 1s ease;
+
+    }
+
+    .icon{
+
+      width:100px;
+
+      height:100px;
+
+      margin:0 auto 20px;
+
+      border-radius:50%;
+
+      background:#dc2626;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      font-size:50px;
+
+      box-shadow:0 0 25px rgba(220,38,38,0.6);
+
+      animation:pulse 1.5s infinite;
+
+    }
+
+    h1{
+
+      font-size:32px;
+
+      margin-bottom:15px;
+
+      color:#f8fafc;
+
+    }
+
+    p{
+
+      font-size:17px;
+
+      line-height:1.7;
+
+      color:#cbd5e1;
+
+      margin-bottom:25px;
+
+    }
+
+    .status{
+
+      display:inline-block;
+
+      padding:10px 20px;
+
+      border-radius:30px;
+
+      background:#7f1d1d;
+
+      color:#fecaca;
+
+      font-weight:bold;
+
+      margin-bottom:25px;
+
+      letter-spacing:1px;
+
+    }
+
+    .contact{
+
+      background:#2563eb;
+
+      padding:14px 30px;
+
+      border-radius:10px;
+
+      text-decoration:none;
+
+      color:#fff;
+
+      font-weight:bold;
+
+      display:inline-block;
+
+      transition:0.3s;
+
+    }
+
+    .contact:hover{
+
+      background:#1d4ed8;
+
+      transform:scale(1.05);
+
+    }
+
+    .footer{
+
+      margin-top:25px;
+
+      font-size:13px;
+
+      color:#94a3b8;
+
+    }
+
+    @keyframes pulse{
+
+      0%{
+
+        transform:scale(1);
+
+      }
+
+      50%{
+
+        transform:scale(1.08);
+
+      }
+
+      100%{
+
+        transform:scale(1);
+
+      }
+
+    }
+
+    @keyframes fadeIn{
+
+      from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+      }
+
+      to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+
+  <div class="container">
+
+    <div class="icon">
+
+      ⚠
+
+    </div>
+
+    <div class="status">
+
+      ACCESS RESTRICTED
+
+    </div>
+
+    <h1>Website Blocked</h1>
+
+    <p>
+
+      This website has been temporarily blocked due to security or administrative reasons.
+
+      Please contact the developer or administrator for more information.
+
+    </p>
+
+    <a href="mailto:developer@example.com" class="contact">
+
+      Contact Developer
+
+    </a>
+
+    <div class="footer">
+
+      Error Code: WEB-403 | Secure Access System
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
