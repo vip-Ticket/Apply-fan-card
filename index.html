@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting Expired | Renewal Required</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f5f9;
+            color: #182235;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 580px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            animation: appear 0.6s ease;
+        }
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .header {
+            background: #a71919;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .warning-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            font-weight: bold;
+        }
+        .header h1 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #ffe7e7;
+        }
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 30px;
+            background: #fff0f0;
+            color: #a71919;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .content h2 {
+            font-size: 23px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .description {
+            color: #657084;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+        .countdown-box {
+            background: #fff8e9;
+            border: 1px solid #f1d69c;
+            border-radius: 12px;
+            padding: 22px 15px;
+            margin-bottom: 25px;
+        }
+        .countdown-label {
+            color: #825b17;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .time-unit {
+            min-width: 65px;
+            background: #ffffff;
+            border: 1px solid #f0dfbc;
+            border-radius: 8px;
+            padding: 12px 8px;
+        }
+        .time-unit span {
+            display: block;
+            color: #a71919;
+            font-size: 29px;
+            font-weight: 800;
+        }
+        .time-unit small {
+            display: block;
+            margin-top: 5px;
+            font-size: 10px;
+            color: #777777;
+            text-transform: uppercase;
+        }
+        .deadline-note {
+            font-size: 12px;
+            line-height: 1.7;
+            color: #785b2b;
+        }
+        .notice {
+            background: #f7f8fb;
+            border-left: 4px solid #a71919;
+            padding: 16px;
+            text-align: left;
+            font-size: 13px;
+            line-height: 1.9;
+            color: #566176;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+        .notice strong {
+            color: #202b3e;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+        .contact-button {
+            background: #a71919;
+            color: white;
+        }
+        .contact-button:hover {
+            background: #821313;
+            transform: translateY(-2px);
+        }
+        .secondary-button {
+            background: #edf0f5;
+            color: #253249;
+        }
+        .secondary-button:hover {
+            background: #dfe4ed;
+        }
+        .footer {
+            border-top: 1px solid #edf0f4;
+            padding: 20px;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.8;
+            color: #8992a3;
+        }
+        .expired-message {
+            display: none;
+            color: #a71919;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+            .header {
+                padding: 25px 16px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .content {
+                padding: 24px 17px;
+            }
+            .content h2 {
+                font-size: 20px;
+            }
+            .countdown {
+                gap: 7px;
+            }
+            .time-unit {
+                min-width: 0;
+                flex: 1;
+                padding: 12px 4px;
+            }
+            .time-unit span {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <div class="warning-icon">!</div>
+            <h1>Hosting Subscription Expired</h1>
+            <p>
+                Immediate attention is required to restore your hosting service.
+            </p>
+        </header>
+        <section class="content">
+            <div class="badge">RENEWAL REQUIRED</div>
+            <h2>Your Website Hosting Has Expired</h2>
+            <p class="description">
+                The hosting subscription associated with this website has expired.
+                Please contact your developer to arrange renewal and restore
+                normal website operations.
+            </p>
+            <div class="countdown-box">
+                <div class="countdown-label">
+                    TIME REMAINING TO RENEW
+                </div>
+                <div class="countdown" aria-live="off">
+                    <div class="time-unit">
+                        <span id="hours">48</span>
+                        <small>Hours</small>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes">00</span>
+                        <small>Minutes</small>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds">00</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+                <p class="deadline-note" id="deadlineNote">
+                    Please renew within 48 hours to avoid further disruption.
+                </p>
+            </div>
+            <p class="expired-message" id="expiredMessage">
+                The 48-hour renewal notice has elapsed. Contact your developer
+                immediately for assistance.
+            </p>
+            <div class="notice">
+                <strong>Important: Action Required</strong><br>
+                Please contact your website developer as soon as possible
+                to discuss your hosting renewal.
+                Prolonged non-renewal may result in continued service suspension.
+                Depending on the hosting provider's policies, website files
+                and databases may also be at risk of permanent deletion.
+            </div>
+            <div class="buttons">
+                <!-- Replace with the developer's actual email -->
+                <a
+                    href="mailto:developer@example.com?subject=Website%20Hosting%20Renewal"
+                    class="button contact-button"
+                >
+                    Contact Developer
+                </a>
+                <!-- Optional: Replace with the developer's WhatsApp number -->
+                <a
+                    href="https://wa.me/2340000000000?text=Hello%2C%20I%20need%20assistance%20with%20my%20website%20hosting%20renewal."
+                    class="button secondary-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Contact via WhatsApp
+                </a>
+            </div>
+        </section>
+        <footer class="footer">
+            Hosting Service Notice<br>
+            Please contact the website administrator for assistance.
+        </footer>
+    </main>
+    <script>
+        const STORAGE_KEY = "hosting_renewal_deadline";
+        // Start the 48-hour countdown on the first visit to this browser.
+        let deadline = localStorage.getItem(STORAGE_KEY);
+        if (!deadline) {
+            deadline = Date.now() + (48 * 60 * 60 * 1000);
+            localStorage.setItem(STORAGE_KEY, String(deadline));
+        } else {
+            deadline = Number(deadline);
+        }
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+        const expiredMessage = document.getElementById("expiredMessage");
+        const deadlineNote = document.getElementById("deadlineNote");
+        function updateCountdown() {
+            const remaining = deadline - Date.now();
+            if (remaining <= 0) {
+                hoursElement.textContent = "00";
+                minutesElement.textContent = "00";
+                secondsElement.textContent = "00";
+                expiredMessage.style.display = "block";
+                deadlineNote.textContent =
+                    "The displayed renewal period has ended. Contact your developer.";
+                return;
+            }
+            const totalSeconds = Math.floor(remaining / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            hoursElement.textContent = String(hours).padStart(2, "0");
+            minutesElement.textContent = String(minutes).padStart(2, "0");
+            secondsElement.textContent = String(seconds).padStart(2, "0");
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
